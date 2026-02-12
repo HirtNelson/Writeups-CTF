@@ -1,29 +1,9 @@
----
-title: "Extract"
-platform: "TryHackMe"
-difficulty: "easy"
-date: "2026-02-11"
-status: "complete"
-tags: []
----
-
 # Extract — Write-up (In Progress)
 
-**Author:** Nelson Hirt  
 **Platform:** TryHackMe  
 **Room:** Extract *(Premium)* **Target:** CVSSM1 v.1.4  
 **Difficulty:** Hard  
 **Goal:** Exploiting SSRF and internal service enumeration to achieve initial access.
-
----
-
-## Executive Summary (Current Progress)
-* ✅ **Recon:** Identified Apache web server and a PDF preview functionality.
-* ✅ **Discovery:** Source code analysis revealed an SSRF vector in `preview.php`.
-* ✅ **SSRF Validation:** Leveraged loopback trust boundary to reach `127.0.0.1`.
-* ✅ **Internal Enumeration:** Accessed restricted endpoints (`server-status` and `/management/`).
-* ✅ **Service Discovery:** Identified an internal Next.js API service on port **10000**.
-* ✅ **Filter Analysis:** Confirmed a keyword-based blacklist blocking common PHP wrappers.
 
 ---
 
@@ -144,4 +124,4 @@ The target filters the decoded URL string and currently only allows `http://` an
 ---
 *Status: Under Construction - Investigation of internal API logic is ongoing.*
 
-Written by Nelson Hirt
+
