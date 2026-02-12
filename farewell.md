@@ -1,18 +1,7 @@
----
-title: "Farewell"
-platform: "TryHackMe"
-difficulty: "medium"
-date: "2026-02-11"
-status: "complete"
-tags: []
----
-
 # Farewell — Write-up (TryHackMe)
 
 **Platform:** TryHackMe  
-**Author:** Nelson Hirt  
-**Date:** 2026-02-05
-
+  
 ---
 
 ## 1. Introduction
@@ -251,4 +240,3 @@ curl http://10.65.158.144/admin.php \
 
 ---
 
-**Written by:** Nelson Hirt
