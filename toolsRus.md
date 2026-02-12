@@ -1,26 +1,7 @@
----
-title: "Tools Rus"
-platform: "TryHackMe"
-difficulty: "easy"
-date: "2026-02-11"
-status: "complete"
-tags: []
----
-
 # ToolsRus — Write-up
-**Author:** Nelson Hirt  
 **Platform:** TryHackMe  
 **Difficulty:** Easy  
 **Category:** Web / Exploitation Tools
-
----
-
-## Executive Summary (Checkpoints)
-* ✅ **Recon:** Nmap scan identified HTTP (80), a secondary web service (1234), and AJP (8009).
-* ✅ **Fuzzing:** Identified a restricted path and a developer note via Gobuster.
-* ✅ **Initial Access:** Cracked Basic Authentication for the `/protected/` directory using Hydra.
-* ✅ **Enumeration:** Confirmed administrative access to Apache Tomcat Manager; Nikto verified high-risk HTTP methods.
-* ✅ **Exploitation:** Obtained a Meterpreter session as **root** via Metasploit.
 
 ---
 
@@ -129,11 +110,3 @@ meterpreter > cat /root/flag.txt
 > **Note:** The session was obtained with **root** privileges directly, as the Tomcat service was misconfigured to run with high permissions.
 
 ---
-
-## Lessons Learned
-- **Isolate Administrative Interfaces:** Management consoles like Tomcat Manager should be bound to `localhost` or restricted via strict firewall rules.
-- **Harden Service Accounts:** Services (like Tomcat) should run under dedicated, low-privilege service accounts (e.g., `tomcat`) to prevent immediate system-wide compromise.
-- **Credential Hygiene:** Avoid using common words or dictionary-based passwords, especially on administrative interfaces.
-
----
-*Written by Nelson Hirt*
