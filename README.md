@@ -1,21 +1,36 @@
 # Writeups-CTFs
 
-Collection of CTF / lab write-ups in Markdown.
+Collection of CTF / lab write-ups.
 
-## Index
-- basic_pentesting.md
-- billing.md
-- brains.md
-- expose.md
-- extract.md
-- farewell.md
-- hammer.md
-- lazyAdmin.md
-- padelify.md
-- pyrat.md
-- rootme.md
-- second.md
-- sequence.md
-- skynet.md
-- toolsRus.md
-- wonderland.md
+---
+
+## TryHackMe
+
+- [basic_pentesting](./basic_pentesting.md)
+- [rootme](./rootme.md)
+- [brains](./brains.md)
+- [expose](./expose.md)
+- [extract](./extract.md)
+- [farewell](./farewell.md)
+- [hammer](./hammer.md)
+- [lazyAdmin](./lazyAdmin.md)
+- [padelify](./padelify.md)
+- [pyrat](./pyrat.md)
+- [second](./second.md)
+- [sequence](./sequence.md)
+- [skynet](./skynet.md)
+- [wonderland](./wonderland.md)
+- [billing](./billing.md)
+- [toolsRus](./toolsRus.md)
+
+---
+
+## Hack The Box
+- *(to be added)*
+
+---
+
+## Others
+- *(to be added)*
+
+---
