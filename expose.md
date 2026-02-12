@@ -1,29 +1,14 @@
----
-title: "Expose"
-platform: "TryHackMe"
-difficulty: "easy"
-date: "2026-02-11"
-status: "complete"
-tags: []
----
-
 # Expose — Write-up (TryHackMe)
 
 **Platform:** TryHackMe  
 **Room:** Expose  
 **Difficulty:** Easy  
-**Author:** Nelson Hirt  
 
 ---
 
 ## 1. Executive Summary
 
 This assessment targets a Linux host exposing multiple services. The compromise chain involves identifying a vulnerability in a custom web application through **SQL Injection**, which leaked specific database credentials and hidden application paths. These paths led to **Local File Inclusion (LFI)** for user enumeration, acting as a gateway to an **Arbitrary File Upload** vulnerability. Privilege escalation to root was achieved by abusing a misconfigured SUID binary.
-
-**Attack Chain:**
-1.  **Initial Access:** SQL Injection on `/admin_101` → Hash Cracking & Config Table Dump → LFI (`/file1010111`) → File Upload Bypass (`/upload-cv00101011`) → **Webshell → Reverse Shell**.
-2.  **Lateral Movement:** SSH login using credentials reused from the database.
-3.  **Privilege Escalation:** Exploiting the SUID bit on `/usr/bin/find`.
 
 ---
 
@@ -198,6 +183,6 @@ uid=1001(zeamkish) gid=1001(zeamkish) euid=0(root) ...
 # cat /root/root.txt
 THM{[REDACTED]}
 ```
-
 ---
-Written by **Nelson Hirt**
+
+
