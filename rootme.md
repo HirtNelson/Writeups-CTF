@@ -1,26 +1,7 @@
----
-title: "Root Me"
-platform: "TryHackMe"
-difficulty: "easy"
-date: "2026-02-11"
-status: "complete"
-tags: []
----
-
 # RootMe — Write-up
-**Author:** Nelson Hirt  
 **Platform:** TryHackMe  
 **Difficulty:** Easy  
 **Category:** Web / Privilege Escalation  
-
----
-
-## Executive Summary (Checkpoints)
-* ✅ **Recon:** Nmap identified HTTP (80) and SSH (22).
-* ✅ **Fuzzing:** Discovered hidden upload and directory paths via GoBuster.
-* ✅ **Exploitation:** Bypassed file upload filter using extension polyglotting (`.php5`).
-* ✅ **Access:** Reverse shell stabilized as `www-data`.
-* ✅ **PrivEsc:** Exploited a misconfigured SUID binary (`python`) to gain root access.
 
 ---
 
@@ -119,4 +100,3 @@ uid=33(www-data) gid=33(www-data) euid=0(root) groups=33(www-data)
 - **SUID Binary Hardening:** Never set the SUID bit on interpreters (Python, Perl, Ruby) or editors (Vim, Nano). Always follow the Principle of Least Privilege.
 
 ---
-*Written by Nelson Hirt*
