@@ -1,18 +1,8 @@
----
-title: "Brains"
-platform: "TryHackMe"
-difficulty: "easy"
-date: "2026-02-11"
-status: "complete"
-tags: []
----
-
 # Brains — Write-up (TryHackMe)
 
 **Platform:** TryHackMe  
 **Room:** Brains  
 **Difficulty:** Easy  
-**Author:** Nelson Hirt  
 
 ---
 
@@ -161,4 +151,3 @@ A network scanning tool was installed, likely for internal reconnaissance.
   `2024-XX-XX ... install nmap:amd64 <none> 7.80+dfsg1-2ubuntu0.1`
 
 ---
-Written by **Nelson Hirt**
