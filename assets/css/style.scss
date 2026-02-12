@@ -1,63 +1,147 @@
 ---
 ---
 
+/* Base theme */
 @import "{{ site.theme }}";
 
-/* ===== base ===== */
+/* =========================
+   Global page (darker)
+   ========================= */
+
+:root {
+  --bg: #06080c;
+  --fg: #e6edf3;
+  --muted: #9aa4b2;
+
+  --panel: rgba(0, 0, 0, 0); /* transparent containers */
+  --border: #1f2630;
+
+  --code-bg: #0a0f16;       /* darker code background */
+  --code-border: #121a24;
+  --link: #7ee787;
+  --link-hover: #a6f3a6;
+}
+
+html, body {
+  background: var(--bg) !important;
+  color: var(--fg) !important;
+}
+
 body {
-  background: #0b0f14;
-  color: #e6edf3;
   font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
 }
 
+/* Main content wrapper used by GitHub Pages themes */
+.container-lg,
 .markdown-body {
-  background: transparent;
-  color: inherit;
+  background: var(--panel) !important;
+  color: var(--fg) !important;
 }
 
-/* links */
-a { color: #7ee787; }
-a:hover { color: #a6f3a6; }
+/* Some themes set a white page background on these */
+.markdown-body,
+.markdown-body > * {
+  background: transparent !important;
+}
 
-/* headings */
+/* Headings */
 .markdown-body h1,
 .markdown-body h2,
 .markdown-body h3,
-.markdown-body h4 {
-  color: #e6edf3;
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  color: var(--fg) !important;
 }
 
-hr { border-color: #2b3440; }
+/* Paragraph-ish text */
+.markdown-body p,
+.markdown-body li,
+.markdown-body blockquote {
+  color: var(--fg) !important;
+}
 
-/* ===== code: inline + blocks ===== */
+/* Links */
+.markdown-body a {
+  color: var(--link) !important;
+  text-decoration-color: rgba(126, 231, 135, 0.45);
+}
+.markdown-body a:hover {
+  color: var(--link-hover) !important;
+}
+
+/* Horizontal rules */
+.markdown-body hr {
+  border-color: var(--border) !important;
+}
+
+/* Tables (optional hardening) */
+.markdown-body table th,
+.markdown-body table td {
+  border-color: var(--border) !important;
+}
+.markdown-body table tr {
+  background: transparent !important;
+}
+
+/* =========================
+   Code styling (robust)
+   - darker blocks
+   - remove "white corners"
+   - disable syntax colors
+   ========================= */
+
+/* Base monospace */
 .markdown-body code,
-.markdown-body tt {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+.markdown-body tt,
+.markdown-body pre,
+.markdown-body pre code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
 }
 
-/* inline code */
+/* Inline code */
 .markdown-body p code,
 .markdown-body li code,
 .markdown-body td code,
 .markdown-body th code {
-  background: #111827;
-  color: #e6edf3;
-  padding: 0.15em 0.35em;
-  border-radius: 6px;
-  border: 1px solid #1f2937;
+  background: var(--code-bg) !important;
+  color: var(--fg) !important;
+  border: 1px solid var(--code-border) !important;
+  border-radius: 8px !important;
+  padding: 0.15em 0.35em !important;
 }
 
-/* code blocks (inclui Jekyll highlight) */
+/* Code blocks: cover all common Jekyll layouts */
 .markdown-body pre,
 .markdown-body pre code,
+.markdown-body .highlight,
 .markdown-body .highlight pre,
-.markdown-body .highlight code {
-  background: #111827 !important;
-  color: #e6edf3 !important;
-  border: 1px solid #1f2937;
+.markdown-body .highlight pre code,
+.markdown-body div.highlight {
+  background: var(--code-bg) !important;
+  color: var(--fg) !important;
 }
 
-/* evita "fundo duplo" dentro do bloco */
+/* Make the outer wrapper match the block (removes white corners) */
+.markdown-body .highlight,
+.markdown-body div.highlight {
+  border: 1px solid var(--code-border) !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;          /* critical to kill corner artifacts */
+}
+
+/* Ensure pre itself doesn't reintroduce a different bg/border */
+.markdown-body pre,
+.markdown-body .highlight pre {
+  margin: 0.9em 0 !important;
+  padding: 0.9em 1em !important;
+  border: 0 !important;                 /* border handled by wrapper */
+  border-radius: 0 !important;          /* wrapper controls corners */
+  overflow: auto !important;
+  box-shadow: none !important;
+}
+
+/* Avoid "double background" on inner code */
 .markdown-body pre code,
 .markdown-body .highlight pre code {
   background: transparent !important;
@@ -65,31 +149,34 @@ hr { border-color: #2b3440; }
   padding: 0 !important;
 }
 
-/* melhora contraste de texto em blocos */
-.markdown-body pre,
-.markdown-body .highlight pre {
-  overflow: auto;
-  border-radius: 10px;
-}
-
-/* ===== code blocks: background tuned for Rouge colors ===== */
-.markdown-body pre,
-.markdown-body .highlight pre {
-  background: #161b22 !important; /* um tom tipo GitHub dark */
-  border: 1px solid #2b3440;
-}
-
-/* texto base do bloco (fallback) */
-.markdown-body pre,
-.markdown-body pre code,
-.markdown-body .highlight pre,
-.markdown-body .highlight pre code {
-  color: #e6edf3 !important;
-}
-
-/* evita fundo duplo dentro do bloco */
-.markdown-body pre code,
-.markdown-body .highlight pre code {
+/* Disable syntax highlighting colors that go low-contrast on dark BG */
+.markdown-body pre code span,
+.markdown-body .highlight pre code span,
+.markdown-body .highlight span {
+  color: inherit !important;
   background: transparent !important;
+  font-weight: inherit !important;
+  font-style: inherit !important;
+  text-decoration: none !important;
 }
 
+/* Some themes use these wrappers; harden them too */
+.markdown-body .highlight .rouge-table,
+.markdown-body .highlight .rouge-gutter,
+.markdown-body .highlight .rouge-code {
+  background: var(--code-bg) !important;
+  color: var(--fg) !important;
+  border: 0 !important;
+}
+
+/* If line numbers show up, keep them subdued */
+.markdown-body .rouge-gutter {
+  color: var(--muted) !important;
+  opacity: 0.8;
+}
+
+/* Blockquotes (optional: make them fit dark mode) */
+.markdown-body blockquote {
+  border-left-color: var(--border) !important;
+  color: var(--muted) !important;
+}
