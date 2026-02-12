@@ -1,27 +1,7 @@
----
-title: "Skynet"
-platform: "TryHackMe"
-difficulty: "medium"
-date: "2026-02-11"
-status: "complete"
-tags: []
----
-
 # Skynet — Write-up
-**Author:** Nelson Hirt  
 **Platform:** TryHackMe  
 **Difficulty:** Easy  
 **Category:** Web / Network Exploitation  
-
----
-
-## Executive Summary (Checkpoints)
-* ✅ **Recon:** Anonymous SMB access provided a custom password wordlist.
-* ✅ **Initial Access:** Password brute-force against SquirrelMail yielded Miles Dyson's credentials.
-* ✅ **Discovery:** Email logs revealed a personal SMB password and a hidden CMS path.
-* ✅ **Vulnerability:** LFI/Arbitrary File Read in Cuppa CMS allowed for configuration exfiltration.
-* ✅ **Exploitation:** Obtained a reverse shell through Remote File Inclusion (RFI).
-* ✅ **PrivEsc:** Exploited a wildcard injection vulnerability in a root-level `tar` cron job.
 
 ---
 
@@ -160,4 +140,4 @@ uid=0(root)  # Elevated privileges confirmed
 **Root Flag:** `THM{[REDACTED_FLAG]}`
 
 ---
-*Written by Nelson Hirt*
+
