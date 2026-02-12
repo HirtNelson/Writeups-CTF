@@ -1,25 +1,7 @@
----
-title: "Lazy Admin"
-platform: "TryHackMe"
-difficulty: "easy"
-date: "2026-02-11"
-status: "complete"
-tags: []
----
-
 # LazyAdmin — Write-up
-**Author:** Nelson Hirt  
 **Platform:** TryHackMe  
 **Difficulty:** Easy  
 **Category:** Web  
-
----
-
-## Executive Summary (Checkpoints)
-* ✅ **Recon:** Port scan identified HTTP and SSH; directory fuzzing revealed `/content/`.
-* ✅ **Vulnerability:** Exposed MySQL backup directory allowed credential hash recovery.
-* ✅ **Exploitation:** Leveraged SweetRice CMS "Ads" feature to achieve Remote Code Execution (RCE).
-* ✅ **PrivEsc:** Exploited a `sudo` misconfiguration in a Perl script to gain root access.
 
 ---
 
@@ -123,11 +105,3 @@ The Perl script `backup.pl` was found to execute a shell script located at `/etc
 
 ---
 
-## Lessons Learned
-- **Secure Backup Storage:** Database backups should never be stored within the web root.
-- **Implement Robust Hashing:** MD5 is cryptographically broken; use `bcrypt` or `Argon2` with unique salts.
-- **Validate File Write Operations:** Administrative features that generate files must be restricted to non-executable formats or stored outside the web root.
-- **Principle of Least Privilege:** `sudo` permissions should be granular. Avoid giving `NOPASSWD` access to scripts that call other writable scripts (execution chain vulnerability).
-
----
-*Written by Nelson Hirt*
