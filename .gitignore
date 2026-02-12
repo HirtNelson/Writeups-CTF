@@ -1,0 +1,11 @@
+# VS Code (configs locais)
+.vscode/
+
+# OS cruft
+.DS_Store
+Thumbs.db
+
+# Temporários
+*.tmp
+*.log
+*~
