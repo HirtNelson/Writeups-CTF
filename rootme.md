@@ -94,9 +94,3 @@ uid=33(www-data) gid=33(www-data) euid=0(root) groups=33(www-data)
 
 ---
 
-## Lessons Learned
-- **Input Validation is Critical:** Blacklisting a single extension (`.php`) is insufficient. Secure configurations should use whitelists and disable execution in upload directories.
-- **Directory Listing/Information Disclosure:** Hidden panels found via fuzzing often lack the same security rigor as main pages.
-- **SUID Binary Hardening:** Never set the SUID bit on interpreters (Python, Perl, Ruby) or editors (Vim, Nano). Always follow the Principle of Least Privilege.
-
----
