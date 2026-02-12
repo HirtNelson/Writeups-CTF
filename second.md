@@ -1,12 +1,3 @@
----
-title: "Second"
-platform: "TryHackMe"
-difficulty: "hard"
-date: "2026-02-11"
-status: "wip"
-tags: []
----
-
 # Second — Write-up
 
 **Platform:** TryHackMe  
@@ -350,5 +341,3 @@ Final flag location:
 ```
 
 ---
-
-Written by Nelson Hirt
