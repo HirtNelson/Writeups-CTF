@@ -1,23 +1,12 @@
----
-title: "Hammer"
-platform: "TryHackMe"
-difficulty: "medium"
-date: "2026-02-11"
-status: "complete"
-tags: []
----
-
 # Hammer — CTF Walkthrough (TryHackMe)
 
 **Platform:** TryHackMe  
 **Room:** Hammer  
 **Difficulty:** Medium  
 **Category:** Web  
-**Date:** February 11, 2026  
-**Author:** Nelson Hirt  
 **Scope:** `http://hammer.thm:1337` (SSH not tested)
 
-> This walkthrough is written for an authorized CTF environment (TryHackMe). Do not reuse these techniques on systems you don’t own or have explicit permission to test.
+This walkthrough is written for an authorized CTF environment (TryHackMe). Do not reuse these techniques on systems you don’t own or have explicit permission to test.
 
 ---
 
@@ -207,14 +196,3 @@ Authorization: Bearer [FORGED_ADMIN_JWT]
 
 ---
 
-## 6) Key Takeaways (CTF-style)
-
-- Public logs under the web root can leak real user identifiers and internal clues.
-- IP-based rate limiting is unreliable if the application trusts spoofable headers like `X-Forwarded-For`.
-- Client-side timers/parameters are not security controls unless enforced server-side.
-- JWT security depends heavily on implementation; treating `kid` as a filesystem path is a risky design.
-- Post-auth “command execution features” must be strongly sandboxed or removed; otherwise they collapse the security boundary.
-
----
-
-Written by Nelson Hirt
