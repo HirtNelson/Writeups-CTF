@@ -1,12 +1,3 @@
----
-title: "Pyrat"
-platform: "TryHackMe"
-difficulty: "easy"
-date: "2026-02-11"
-status: "complete"
-tags: []
----
-
 # Pyrat — Write-up
 
 **Platform:** TryHackMe  
@@ -17,17 +8,6 @@ tags: []
 ## Description
 
 The target exposes SSH and an atypical service on **TCP/8000**. Although it presents HTTP-like behavior, it also accepts **raw socket** input and evaluates expressions in a **Python execution context**. By enumerating exposed functions and satisfying an **admin gate**, it is possible to reach a built-in **privileged shell** and retrieve flags.
-
----
-
-## Attack Path Summary
-
-- Enumerate exposed services (SSH and TCP/8000).
-- Validate TCP/8000 behavior via HTTP and raw socket interaction.
-- Inspect the Python execution context (globals) for exposed functions.
-- Confirm admin gate constraints and recover the admin credential via minimal static inspection.
-- Authenticate through the admin flow to access the privileged shell.
-- Retrieve user and root flags.
 
 ---
 
@@ -250,11 +230,3 @@ THM{REDACTED}
 
 This target exposes a raw socket service on TCP/8000 that evaluates user input within a Python execution context. By enumerating exposed functions, validating the admin gate logic, and completing the intended authentication flow, it is possible to access a built-in privileged shell and retrieve both flags.
 
-**Primary security issues**
-- unauthenticated evaluation surface (code/expression execution via raw socket),
-- hardcoded credential embedded in application logic,
-- privileged shell path without defense-in-depth.
-
----
-
-Written by Nelson Hirt
