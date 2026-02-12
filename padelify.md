@@ -1,29 +1,9 @@
----
-title: "Padelify"
-platform: "TryHackMe"
-difficulty: "medium"
-date: "2026-02-11"
-status: "complete"
-tags: []
----
-
 # Padelify — Write-up
 
-**Author:** Nelson Hirt  
 **Platform:** TryHackMe  
 **Room:** Padelify  
 **Difficulty:** Medium  
 **Goal:** Bypass WAF protection and obtain administrative access.
-
----
-
-## Executive Summary (Checkpoints)
-
-* ✅ **Recon:** Found exposed logs disclosing versioning and internal config paths.
-* ✅ **Exploitation:** Stored XSS confirmed via approval workflow; admin cookie captured.
-* ✅ **Access:** Session hijacking successful; **Flag 1** obtained (Redacted).
-* ✅ **Post-Exploitation:** Arbitrary File Read via `live.php` bypass; extracted credentials.
-* ✅ **Final:** Administrative login successful; **Flag 2** obtained (Redacted).
 
 ---
 
@@ -127,4 +107,4 @@ The `admin_info` value was subsequently used as the administrator password in th
 
 ---
 
-*Written by Nelson Hirt*
+
