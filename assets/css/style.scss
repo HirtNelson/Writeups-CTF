@@ -71,3 +71,25 @@ hr { border-color: #2b3440; }
   overflow: auto;
   border-radius: 10px;
 }
+
+/* ===== code blocks: background tuned for Rouge colors ===== */
+.markdown-body pre,
+.markdown-body .highlight pre {
+  background: #161b22 !important; /* um tom tipo GitHub dark */
+  border: 1px solid #2b3440;
+}
+
+/* texto base do bloco (fallback) */
+.markdown-body pre,
+.markdown-body pre code,
+.markdown-body .highlight pre,
+.markdown-body .highlight pre code {
+  color: #e6edf3 !important;
+}
+
+/* evita fundo duplo dentro do bloco */
+.markdown-body pre code,
+.markdown-body .highlight pre code {
+  background: transparent !important;
+}
+
