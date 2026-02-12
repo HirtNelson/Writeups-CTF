@@ -1,26 +1,7 @@
----
-title: "Sequence"
-platform: "TryHackMe"
-difficulty: "medium"
-date: "2026-02-11"
-status: "complete"
-tags: []
----
-
 # Sequence — Write-up
-**Author:** Nelson Hirt  
 **Platform:** TryHackMe  
 **Difficulty:** Medium  
 **Category:** Web / Container Escape  
-
----
-
-## Executive Summary (Attack Chain)
-* ✅ **Initial Access:** Stored XSS on `/contact.php` used to hijack a reviewer's session.
-* ✅ **Privilege Escalation:** Exploited predictable CSRF tokens to promote a user via an internal chat pivot.
-* ✅ **Discovery:** Information disclosure in `/mail/dump.txt` revealed the `finance.php` endpoint.
-* ✅ **Exploitation:** Chained Arbitrary File Inclusion (AFI) with a file upload to achieve RCE.
-* ✅ **Post-Exploitation:** Escaped the Docker container via `/var/run/docker.sock` to retrieve the root flag.
 
 ---
 
@@ -140,11 +121,3 @@ By leveraging the local Docker CLI to run a new container with the host's root d
 
 ---
 
-## Lessons Learned
-* **Input Sanitization:** Sanitize all fields in contact forms to prevent stored XSS.
-* **Secure Tokens:** CSRF tokens must be cryptographically secure and non-predictable.
-* **Infrastructure Hardening:** Never mount the Docker socket (`docker.sock`) inside a container unless strictly necessary, as it is equivalent to providing root access to the host.
-* **AFI Mitigation:** Use whitelists for file inclusion and ensure uploaded files are stored in non-executable directories.
-
----
-*Written by Nelson Hirt*
