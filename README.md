@@ -1,3 +1,9 @@
+---
+layout: default
+title: Writeups-CTFs
+description: Collection of CTF / lab write-ups.
+og_image: /og-image.jpg
+---
 # Writeups-CTFs
 
 Collection of CTF / lab write-ups.
