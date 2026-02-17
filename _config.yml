@@ -1,0 +1,7 @@
+title: "Nelson Hirt - Writeups CTF"
+description: "Portfolio de Cybersecurity e Pentest. Resoluções detalhadas de máquinas TryHackMe e Hack The Box usando Kali Linux."
+url: "https://hirtnelson.github.io"
+baseurl: "/Writeups-CTFs"
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag

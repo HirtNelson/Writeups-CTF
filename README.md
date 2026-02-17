@@ -1,6 +1,6 @@
 # Writeups-CTFs
 
-Collection of CTF / lab write-ups.
+Collection of Cybersecurity, Pentest and CTF write-ups using Kali Linux. Documenting paths to root on TryHackMe and Hack The Box machines.
 
 ---
 
